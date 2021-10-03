@@ -9,9 +9,9 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 
 //components
-import Platforms from 'components/Platforms';
-import { getValues, setValues } from 'utils/Forage';
-import { BuildGraph, SetupDependencies, KillProcess } from 'utils/UE4Commands';
+import Platforms from '@/components/Platforms';
+import { getValues, setValues } from '@/utils/Forage';
+import { BuildGraph, SetupDependencies, KillProcess } from '@/utils/UE4Commands';
 
 //API
 import { open } from "@tauri-apps/api/dialog";
@@ -23,8 +23,8 @@ const App = () => {
   const [isBuilding, setIsBuilding] = useState<any>();
   const stdoutput = useRef<any>();
 
-  let PlatformType: any; 
-  const Platform = (data: any) => { 
+  let PlatformType: any;
+  const Platform = (data: any) => {
     PlatformType = data.host;
   };
 
@@ -74,8 +74,8 @@ const App = () => {
           else {
             setValues("UE4Path", res);
             setUE4Path(res);
-          } 
-          setUE4Path(res);   
+          }
+          setUE4Path(res);
         })
       });
     }
@@ -105,8 +105,8 @@ const App = () => {
           <MenuItem value={4.26}>4.26</MenuItem>
         </Select>
       </FormControl>
-      <Button 
-        variant="contained" 
+      <Button
+        variant="contained"
         color="primary"
         onClick={() => RunCommand("Setup")}
       >
@@ -132,19 +132,19 @@ const App = () => {
       {
         !isBuilding ?
         (
-          <Button 
-            variant="contained" 
-            color="primary" 
-            onClick={() => RunCommand("BuildGraph")}       
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => RunCommand("BuildGraph")}
           >
           Start
           </Button>
         ) :
         (
-          <Button 
-            variant="contained" 
-            color="primary" 
-            onClick={() => RunCommand("Kill")}       
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => RunCommand("Kill")}
           >
           Stop
           </Button>

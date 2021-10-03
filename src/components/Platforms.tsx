@@ -5,7 +5,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
 //component
-import { getValues, setValues } from 'utils/Forage'
+import { getValues, setValues } from '@/utils/Forage'
 
 const Platforms = (props: any) => {
     const [checked, setChecked] = useState<any>({
